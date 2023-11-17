@@ -8,11 +8,14 @@
       href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
       rel="stylesheet"
     />
-     <link
+    <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans&display=swap">
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans&display=swap"
+    />
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body class="min-h-screen">
@@ -32,7 +35,7 @@
           <div class="lg:hidden flex items-center">
             <button class="outline-none mobile-menu-button">
               <svg
-                class="w-6 h-6 text-gray-500 "
+                class="w-6 h-6 text-gray-500"
                 x-show="!showMenu"
                 fill="none"
                 stroke-linecap="round"
@@ -52,9 +55,12 @@
             </a>
           </div>
           <!-- Primary Navbar items -->
-          <div class="hidden lg:flex items-center space-x-1 ">
+          <div class="hidden lg:flex items-center space-x-1">
             <div class="dropdown">
-              <a href="#" class="text-gray-900 flex items-center text-center text-black text-base font-normal leading-normal">
+              <a
+                href="#"
+                class="text-gray-900 flex items-center text-center text-black text-base font-normal leading-normal"
+              >
                 Shop
               </a>
               <div class="dropdown-content">
@@ -64,26 +70,23 @@
                 <!-- Add more categories as needed -->
               </div>
             </div>
-          
-        <img src="./img/Frame.png" alt="" class="w-4 h-4" /> 
-            </a>
+
+            <img src="./img/Frame.png" alt="" class="w-4 h-4" />
+
+            <a href="" class="py-4 px-2 hover:text-black">On Sale </a>
+
             <a
               href=""
-              class="py-4 px-2  hover:text-black   "
-              >On Sale 
-            
-            <a
-              href=""
-              class="py-4 px-2 text-black text-base font-normal leading-normal "
+              class="py-4 px-2 text-black text-base font-normal leading-normal"
               >New Arrivals</a
             >
             <a
               href=""
-              class="py-4 px-2 text-black text-base font-normal leading-normal  "
+              class="py-4 px-2 text-black text-base font-normal leading-normal"
               >Brands</a
             >
           </div>
-          
+
           <!-- Secondary Navbar items -->
           <div class="hidden md:flex items-center space-x-1">
             <span class="sm:relative left-9 items-center">
@@ -119,14 +122,12 @@
           </li>
           <li>
             <a
-       
               class="block text-sm px-2 py-4 hover:bg-gray-200 transition duration-300"
               >New Arrivals</a
             >
           </li>
           <li>
             <a
-           
               class="block text-sm px-2 py-4 hover:bg-gray-200 transition duration-300"
               >Brands</a
             >
@@ -167,7 +168,7 @@
 
           <div class="w-6/7 mx-auto mt-2 border-t-2 border-gray-300"></div>
           <div>
-            <div class="flex justify-center flex-col gap-4 pt-4 ">
+            <div class="flex justify-center flex-col gap-4 pt-4">
               <div class="flex justify-between items-center pl-3">
                 <p class="opacity-60">T-shirts</p>
                 <img src="./img/Frame1.png" alt="" />
@@ -176,7 +177,7 @@
                 <p class="opacity-60">Shorts</p>
                 <img src="./img/Frame1.png" alt="" />
               </div>
-             
+
               <div class="flex justify-between items-center pl-3">
                 <p class="opacity-60">Shirts</p>
                 <img src="./img/Frame1.png" alt="" />
@@ -201,8 +202,10 @@
           </div>
 
           <div class="card p-5">
-            <div class="slider">
-              <div class="progress"></div>
+            <div class="slider h-1.5 relative bg-gray-300 rounded-2xl">
+              <div
+                class="progress h-full left-1/4 right-1/4 absolute rounded-2xl bg-gray-800"
+              ></div>
             </div>
             <div class="range-input relative">
               <input
@@ -378,12 +381,6 @@
                 4X-Large
               </p>
             </div>
-
-
-
-
-
-
           </div>
 
           <div class="w-6/7 mx-auto mt-2 border-t-2 border-gray-300 mt-2"></div>
@@ -427,31 +424,32 @@
       <section class="products-section w-2/3 pl-7">
         <div class="flex items-center justify-between">
           <h3 class="text-3xl font-bold">Casual</h3>
-          
+
           <div class="flex gap-3">
             <p class="sort-show opacity-60">Showing 1-10 of 476 Products</p>
-  
-            <!-- Dropdown Trigger -->
-            <div class="sortStyles hidden lg:flex">
-              <div class="flex gap-4 relative">
 
-              <span class="opacity-60">Sort by:</span> Most Popular
-              <!-- Dropdown Content -->
-              <div class="dropdownContent">
-                <a href="#">Option 1</a>
-                <a href="#">Option 2</a>
-                <a href="#">Option 3</a>
-                <!-- Add more options as needed -->
+            <!-- Dropdown Trigger -->
+            <div class="sortStyles hidden lg:flex cursor-pointer">
+              <div class="flex gap-4 relative">
+                <span class="opacity-60">Sort by:</span> Most Popular
+                <!-- Dropdown Content -->
+                <div
+                  class="dropdownContent hidden absolute bg-white border border-gray-300 rounded-md shadow-sm p-2 z-10"
+                >
+                  <a href="#">Option 1</a>
+                  <a href="#">Option 2</a>
+                  <a href="#">Option 3</a>
+                  <!-- Add more options as needed -->
+                </div>
               </div>
             </div>
-            </div>
-          
+
             <img class="sm:hidden" src="./img/filters.png" alt="" />
           </div>
         </div>
 
         <!-- PRODUCTS -->
-        
+
         <div
           id="products"
           class="products-style grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4 pt-6"
@@ -520,11 +518,11 @@
 
         <!-- Pagination -->
         <div class="mx-auto mt-20 mb-6 border-t-2 border-gray-300"></div>
-        <div class="box">
+        <div class="box p-10 flex items-center justify-center">
           <button type="button" class="prev flex justify-center items-center">
             <img src="./img/arrow-left.png" alt="" /> <a href="#">Previous</a>
           </button>
-          <ul id="ull"></ul>
+          <ul id="ull" class="flex mx-10"></ul>
 
           <!-- <ul class="ul">
             <li class="link" value="1" onclick="activeLink()">1</li>
@@ -666,15 +664,26 @@
       </main>
     </section> -->
 
-    <section id="products-preview" class="hidden  items-center justify-center">
-      <main class="preview w-screen flex flex-col  bg-white rounded-lg overflow-hidden">
-         <div id="preview-container" class="flex flex-col" >
-                <i onclick="closePreview()" class="fas fa-times"></i>
-            <div id="prev-top-content" class="flex items-start">
-               <img class="md:hidden" src="./img/product.png"  alt="product image" >
-               <img class="hidden md:block w-1/2 h4" src="./img/product.png" alt="product image">
-               <div id = "maincontent" class="ml-10 w-full items-start md:w-1/2">
-                  <!-- <h1 class="font-fraunces font-black text-4xl mt-4">Test  variants product default variant</h1>
+    <section id="products-preview" class="hidden items-center justify-center">
+      <main
+        class="preview w-screen flex flex-col bg-white rounded-lg overflow-hidden"
+      >
+        <div id="preview-container" class="flex flex-col">
+          <i onclick="closePreview()" class="fas fa-times"></i>
+          <div id="prev-top-content" class="flex items-start">
+            <img
+              class="md:hidden"
+              src="./img/product.png"
+              alt="product image"
+            />
+            <img
+              class="hidden md:block w-1/2 h4"
+              src="./img/product.png"
+              alt="product image"
+            />
+
+            <div id="maincontent" class="ml-10 w-full items-start md:w-1/2">
+              <!-- <h1 class="font-fraunces font-black text-4xl mt-4">Test  variants product default variant</h1>
                   <div class="mt-5 mb-3 flex items-center"><span class="text-3xl font-bold font-fraunces text-dark-cyan">100.00</span></div>
                   <p class="text-very-dark-blue font-montserrat mt-5 text-xl">Test  variants product default variant</p>
                   <div class="pt-4">
@@ -702,15 +711,14 @@
                   </div>
                   <div class="ddd mt-5 mb-3"></div>
                   <div class="flex items-center justify-between font-bold text-white w-full py-3"><button class="number bg-black">1</button><button class="addtocard bg-black">Add to Cart</button></div> -->
-               </div>
-             
             </div>
-            <div class="prevlike  flex flex-col overflow-x-scroll">
-              <h2 class="text-3xl font-bold items-start pb-5">
-                 You might also like
-              </h2>
-              <div id="youMightLikeProds" class="flex gap-3">
-                 <!-- <div>
+          </div>
+          <div class="prevlike flex flex-col overflow-x-scroll">
+            <h2 class="text-3xl font-bold items-start pb-5">
+              You might also like
+            </h2>
+            <div id="youMightLikeProds" class="flex gap-3">
+              <!-- <div>
                     <img src="./img/shhop.png" class="product rounded-2xl" alt="" />
                     <p class="mt-2">Gradient Graphic T-shirt</p>
                     
@@ -736,23 +744,18 @@
                     <p class="mt-2">Amazing Bronze Scarf Collection19</p>
                     <p class="mt-2">8834</p>
                  </div> -->
-                
-               </div>
-                
-               
-               
-             </div>
-              </div>
-           </div>
-         </div>
+            </div>
+          </div>
+        </div>
       </main>
-   </section>
-
+    </section>
 
     <!-- BANNER -->
 
-    <section class="banner m-0">
-      <div class="banner-style flex items-center p-11  justify-between">
+    <section
+      class="banner m-0 w-11/12 bg-black rounded-2xl absolute left-1/2 transform -translate-x-1/2 z-2"
+    >
+      <div class="banner-style flex items-center p-11 justify-between">
         <div class="flex justify-center items-center">
           <h6 class="text-banner text-white text-4xl">
             STAY UPTO DATE ABOUT <br />OUR LATEST OFFERS
@@ -782,9 +785,7 @@
     <!-- FOOTER -->
 
     <footer class="footer bg-gray-100 pt-10">
-      <div
-        class="mx-10  space-y-8 px-4 py-16 sm:px-6 lg:space-y-16 lg:px-8"
-      >
+      <div class="mx-10 space-y-8 px-4 py-16 sm:px-6 lg:space-y-16 lg:px-8">
         <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
           <div>
             <div class="text-teal-600">
@@ -989,7 +990,7 @@
             </p>
             <div class="flex pt-2">
               <img src="./img/Badge.png" class="badge" />
-              <img src="./img/Badge2.png"  class="badge" alt="" />
+              <img src="./img/Badge2.png" class="badge" alt="" />
               <img src="./img/Badge3.png" class="badge" alt="" />
               <img src="./img/Badge4.png" class="badge" alt="" />
               <img src="./img/Badge5.png" class="badge" alt="" />
@@ -1017,8 +1018,6 @@
         currentValue = event.target.value
       }
     </script>
-
-
 
     <script src="./script.js"></script>
   </body>
