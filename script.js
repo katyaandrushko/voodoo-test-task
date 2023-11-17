@@ -110,6 +110,7 @@ const displayProducts = async (page) => {
       const priceDiv = document.createElement('div')
       priceDiv.className = 'mt-5 mb-3 flex items-center'
       const priceSpan = document.createElement('span')
+      priceSpan.id = 'price' + product.id
       priceSpan.className = 'price-prev text-3xl font-bold text-dark-cyan'
       priceSpan.innerText = productPrice
       priceDiv.appendChild(priceSpan)
@@ -137,19 +138,74 @@ const displayProducts = async (page) => {
       const options = product.options
       const sizeCont = options.find((o) => o.name == 'Size')
       const colorCont = options.find((o) => o.name == 'Color')
+      let currentColor = ''
+      let currentSize = ''
+
+      const colorDivs = []
+      const colorTicks = []
 
       if (colorCont != undefined) {
         const colors = colorCont.values
 
         for (const color of colors) {
           const colorDiv = document.createElement('div')
+          colorDiv.id = color
           colorDiv.className =
-            'w-11 h-11 rounded-full border-solid border-2 border-opacity-20 border-black mb-4 ' +
+            'w-11 h-11 flex rounded-full justify-center items-center border-solid border-2 border-opacity-20 border-black mb-4 ' +
             'bg-' +
             color.toLowerCase()
+
+          const tickSvg = document.createElementNS(
+            'http://www.w3.org/2000/svg',
+            'svg'
+          )
+          const useSvg = document.createElementNS(
+            'http://www.w3.org/2000/svg',
+            'use'
+          )
+          tickSvg.classList.add('hidden')
+          tickSvg.setAttribute('class', 'z-20')
+          tickSvg.setAttribute('id', color)
+          tickSvg.setAttribute('width', '16px')
+          tickSvg.setAttribute('height', '16px')
+          useSvg.setAttributeNS(
+            'http://www.w3.org/1999/xlink',
+            'href',
+            './img/Frame.svg'
+          )
+
+          tickSvg.appendChild(useSvg)
+          colorDiv.appendChild(tickSvg)
           colorsDiv.appendChild(colorDiv)
+
+          colorDivs.push(colorDiv)
+          colorTicks.push(tickSvg)
         }
       }
+
+      const setNewPrice = (size, color) => {
+        const curPriceSpan = document.getElementById('price' + product.id)
+        const newPrice = variants.find(
+          (v) => v.option1 == size && v.option2 == color
+        )
+        if (newPrice != undefined) {
+          curPriceSpan.innerText = newPrice.price
+        }
+      }
+
+      colorDivs.forEach((colorDiv) => {
+        colorDiv.addEventListener('click', () => {
+          colorTicks.forEach((colorTick) => {
+            if (colorTick.id == colorDiv.id) {
+              colorTick.classList.remove('hidden')
+              currentColor = colorDiv.id
+              setNewPrice(currentSize, currentColor)
+            } else {
+              colorTick.className = 'hidden'
+            }
+          })
+        })
+      })
 
       maincontent.appendChild(colorsDiv)
 
@@ -167,24 +223,44 @@ const displayProducts = async (page) => {
       const sizesDiv = document.createElement('div')
       sizesDiv.className = 'size flex gap-4 pt-2'
 
+      const sizesDivs = []
+
       if (sizeCont != undefined) {
         const sizes = sizeCont.values
 
         for (const size of sizes) {
           const sizeDiv = document.createElement('div')
+          sizeDiv.id = size
           sizeDiv.className =
-            'flex items-center justify-center bg-gray-200 rounded-full'
+            'size-btn flex items-center justify-center bg-gray-200 rounded-full'
           sizeDiv.style = 'width: 102px; height: 38px'
 
           const sizeP = document.createElement('p')
           sizeP.className =
-            'textprice text-black opacity-60 text-base font-normal leading-normal'
+            'textprice opacity-60 text-base font-normal leading-normal'
           sizeP.innerText = size
 
           sizeDiv.appendChild(sizeP)
           sizesDiv.appendChild(sizeDiv)
+          sizesDivs.push(sizeDiv)
         }
       }
+
+      const variants = product.variants
+
+      sizesDivs.forEach((sizeDiv) => {
+        sizeDiv.addEventListener('click', () => {
+          sizesDivs.forEach((otherSizeDiv) => {
+            if (sizeDiv.id == otherSizeDiv.id) {
+              sizeDiv.classList.add('active')
+              currentSize = sizeDiv.id
+              setNewPrice(currentSize, currentColor)
+            } else {
+              otherSizeDiv.classList.remove('active')
+            }
+          })
+        })
+      })
 
       maincontent.appendChild(sizesDiv)
 
@@ -200,7 +276,8 @@ const displayProducts = async (page) => {
       const addButton = document.createElement('button')
       amountButton.className = 'number bg-black'
       addButton.className = 'addtocard bg-black'
-      amountButton.innerText = '1 '
+      amountButton.innerText = '- 1 +'
+
       addButton.innerText = 'Add to Cart'
 
       actionsDiv.appendChild(amountButton)

@@ -112,27 +112,27 @@
       </div>
       <!-- mobile menu -->
       <div class="hidden mobile-menu">
-        <ul class="">
-          <li class="active">
+        <ul>
+          <li class="active flex items-center justify-center text-center">
             <a
               href="index.html"
               class="block text-sm px-2 py-4 hover:bg-gray-200 transition duration-300"
               >Shop</a
             >
           </li>
-          <li>
+          <li class="flex items-center justify-center text-center">
             <a
               class="block text-sm px-2 py-4 hover:bg-gray-200 transition duration-300"
               >New Arrivals</a
             >
           </li>
-          <li>
+          <li class="flex items-center justify-center text-center">
             <a
               class="block text-sm px-2 py-4 hover:bg-gray-200 transition duration-300"
               >Brands</a
             >
           </li>
-          <li>
+          <li class="flex items-center justify-center text-center">
             <a
               href="#contact"
               class="block text-sm px-2 py-4 hover:bg-gray-200 transition duration-300"
@@ -154,7 +154,7 @@
 
     <!-- FILTERS -->
 
-    <section class="flex pb-20">
+    <section class="flex pb-10">
       <section class="filter-style w-1/4 ml-12">
         <div class="pb-2 pl-4 pt-3 pr-6 border border-solid">
           <div class="flex justify-between">
@@ -518,7 +518,7 @@
 
         <!-- Pagination -->
         <div class="mx-auto mt-20 mb-6 border-t-2 border-gray-300"></div>
-        <div class="box p-10 flex items-center justify-center">
+        <div class="box p-10 flex items-center justify-between">
           <button type="button" class="prev flex justify-center items-center">
             <img src="./img/arrow-left.png" alt="" /> <a href="#">Previous</a>
           </button>
@@ -643,7 +643,19 @@
               <div
                 class="flex items-center justify-between font-bold text-white w-full py-3"
               >
-                <button class="number bg-black">1</button>
+                <button class="number bg-black">
+                   <div
+      class="flex items-center justify-center xl:px-[20px] xl:py-[10px] xl:gap-[35px] xs:py-[8px] xs:px-[16px] xs:gap-[12px] rounded-full xl:mr-[20px] xs:mr-[12px] bg-[#F0F0F0]"
+    >
+      <span value="-" id="decrement" class="text-[20px] font-medium">-</span>
+      <span id="count" class="xs:text-[14px] w-[15px] text-center font-medium"
+        >1</span
+      >
+      <span value="+" id="increment" class="text-[20px] pb-[1px] font-medium"
+        >+</span
+      >
+    </div>
+    </button>
                 <button class="addtocard bg-black">Add to Cart</button>
               </div>
             </div>
@@ -713,11 +725,11 @@
                   <div class="flex items-center justify-between font-bold text-white w-full py-3"><button class="number bg-black">1</button><button class="addtocard bg-black">Add to Cart</button></div> -->
             </div>
           </div>
-          <div class="prevlike flex flex-col overflow-x-scroll">
+          <div class="prevlike flex flex-col">
             <h2 class="text-3xl font-bold items-start pb-5">
               You might also like
             </h2>
-            <div id="youMightLikeProds" class="flex gap-3">
+            <div id="youMightLikeProds" class="flex gap-5 overflow-x-scroll">
               <!-- <div>
                     <img src="./img/shhop.png" class="product rounded-2xl" alt="" />
                     <p class="mt-2">Gradient Graphic T-shirt</p>
@@ -863,29 +875,43 @@
             class="footer-style grid gap-8 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-4"
           >
             <div>
-              <p class="font-medium text-gray-900">Company</p>
+              <p class="text-gray-900 uppercase leading-4 tracking-wider">
+                Company
+              </p>
 
               <ul class="mt-6 space-y-4 text-sm">
                 <li>
-                  <a href="#" class="text-gray-700 transition hover:opacity-75">
+                  <a
+                    href="#"
+                    class="text-gray-700 opacity-70 transition hover:opacity-100"
+                  >
                     About
                   </a>
                 </li>
 
                 <li>
-                  <a href="#" class="text-gray-700 transition hover:opacity-75">
+                  <a
+                    href="#"
+                    class="text-gray-700 opacity-70 transition hover:opacity-100"
+                  >
                     Features
                   </a>
                 </li>
 
                 <li>
-                  <a href="#" class="text-gray-700 transition hover:opacity-75">
+                  <a
+                    href="#"
+                    class="text-gray-700 opacity-70 transition hover:opacity-100"
+                  >
                     Works
                   </a>
                 </li>
 
                 <li>
-                  <a href="#" class="text-gray-700 transition hover:opacity-75">
+                  <a
+                    href="#"
+                    class="text-gray-700 opacity-70 transition hover:opacity-100"
+                  >
                     Career
                   </a>
                 </li>
@@ -893,28 +919,44 @@
             </div>
 
             <div>
-              <p class="font-medium text-gray-900">Help</p>
+              <p
+                class="font-medium text-gray-900 uppercase leading-4 tracking-wider"
+              >
+                Help
+              </p>
 
               <ul class="mt-6 space-y-4 text-sm">
                 <li>
-                  <a href="#" class="text-gray-700 transition hover:opacity-75">
+                  <a
+                    href="#"
+                    class="text-gray-700 opacity-70 transition hover:opacity-100"
+                  >
                     Customer Support
                   </a>
                 </li>
 
                 <li>
-                  <a href="#" class="text-gray-700 transition hover:opacity-75">
+                  <a
+                    href="#"
+                    class="text-gray-700 opacity-70 transition hover:opacity-100"
+                  >
                     Delivery Details
                   </a>
                 </li>
 
                 <li>
-                  <a href="#" class="text-gray-700 transition hover:opacity-75">
+                  <a
+                    href="#"
+                    class="text-gray-700 opacity-70 transition hover:opacity-100"
+                  >
                     Terms & Conditions
                   </a>
                 </li>
                 <li>
-                  <a href="#" class="text-gray-700 transition hover:opacity-75">
+                  <a
+                    href="#"
+                    class="text-gray-700 opacity-70 transition hover:opacity-100"
+                  >
                     Privacy Policy
                   </a>
                 </li>
@@ -922,29 +964,45 @@
             </div>
 
             <div>
-              <p class="font-medium text-gray-900">FAQ</p>
+              <p
+                class="font-medium text-gray-900 uppercase leading-4 tracking-wider"
+              >
+                FAQ
+              </p>
 
               <ul class="mt-6 space-y-4 text-sm">
                 <li>
-                  <a href="#" class="text-gray-700 transition hover:opacity-75">
+                  <a
+                    href="#"
+                    class="text-gray-700 opacity-70 transition hover:opacity-100"
+                  >
                     Account
                   </a>
                 </li>
 
                 <li>
-                  <a href="#" class="text-gray-700 transition hover:opacity-75">
+                  <a
+                    href="#"
+                    class="text-gray-700 opacity-70 transition hover:opacity-100"
+                  >
                     Manage Deliveries
                   </a>
                 </li>
 
                 <li>
-                  <a href="#" class="text-gray-700 transition hover:opacity-75">
+                  <a
+                    href="#"
+                    class="text-gray-700 opacity-70 transition hover:opacity-100"
+                  >
                     Orders
                   </a>
                 </li>
 
                 <li>
-                  <a href="#" class="text-gray-700 transition hover:opacity-75">
+                  <a
+                    href="#"
+                    class="text-gray-700 opacity-70 transition hover:opacity-100"
+                  >
                     Payments
                   </a>
                 </li>
@@ -952,28 +1010,44 @@
             </div>
 
             <div>
-              <p class="font-medium text-gray-900">Reimgs</p>
+              <p
+                class="font-medium text-gray-900 uppercase leading-4 tracking-wider"
+              >
+                Resources
+              </p>
 
               <ul class="mt-6 space-y-4 text-sm">
                 <li>
-                  <a href="#" class="text-gray-700 transition hover:opacity-75">
+                  <a
+                    href="#"
+                    class="text-gray-700 opacity-70 transition hover:opacity-100"
+                  >
                     Free eBooks
                   </a>
                 </li>
 
                 <li>
-                  <a href="#" class="text-gray-700 transition hover:opacity-75">
+                  <a
+                    href="#"
+                    class="text-gray-700 opacity-70 transition hover:opacity-100"
+                  >
                     Development Tutorial
                   </a>
                 </li>
 
                 <li>
-                  <a href="#" class="text-gray-700 transition hover:opacity-75">
+                  <a
+                    href="#"
+                    class="text-gray-700 opacity-70 transition hover:opacity-100"
+                  >
                     How to - Blog
                   </a>
                 </li>
                 <li>
-                  <a href="#" class="text-gray-700 transition hover:opacity-75">
+                  <a
+                    href="#"
+                    class="text-gray-700 opacity-70 transition hover:opacity-100"
+                  >
                     Youtube Playlist
                   </a>
                 </li>
@@ -1017,6 +1091,28 @@
         event.target.classList.add('active')
         currentValue = event.target.value
       }
+
+      // const decrement = document.getElementById('decrement')
+      // const increment = document.getElementById('increment')
+      // const count = document.getElementById('count')
+
+      // increment.addEventListener('click', changeCount)
+      // decrement.addEventListener('click', changeCount)
+
+      // function changeCount() {
+      //   let value = parseInt(count.textContent)
+      //   if (this.getAttribute('value') === '+') {
+      //     value++
+      //     count.textContent = value
+      //   }
+      //   if (value === 1) {
+      //     return
+      //   }
+      //   if (this.getAttribute('value') === '-') {
+      //     value = value - 1
+      //     count.textContent = value
+      //   }
+      // }
     </script>
 
     <script src="./script.js"></script>

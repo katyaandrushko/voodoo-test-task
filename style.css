@@ -198,6 +198,12 @@ input[type='range']::-moz-range-thumb {
   text-align: center;
 }
 
+.ddd {
+  width: 590px;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.1);
+}
+
 .box ul li {
   font-size: 25px;
   text-decoration: none;
@@ -316,7 +322,7 @@ main {
 
 .number {
   display: flex;
-  /* width: 50%; */
+
   height: 52px;
   align-items: center;
   padding: 16px 72px;
@@ -404,4 +410,9 @@ main {
   cursor: pointer;
   color: #444;
   font-size: 3rem;
+}
+
+.size-btn.active {
+  background-color: #000;
+  color: white;
 }
