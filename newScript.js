@@ -1,19 +1,13 @@
 const shopifyRoot = 'https://voodoo-sandbox.myshopify.com/'
 
 const getProducts = async () => {
-   const response = await fetch(
-      //shopifyRoot + 'products.json?limit=461'
-      'product.json'
-   )
+   const response = await fetch(shopifyRoot + 'products.json?limit=461')
    return await response.json()
 }
 
 const getRecommendedProducts = async (productId) => {
    let link =
-      shopifyRoot +
-      'recommendations/products.json?product_id=' +
-      productId +
-      '&limit=4'
+      shopifyRoot + 'recommendations/products.json?product_id=' + productId
 
    const response = await fetch('recommendedProducts.json')
    return await response.json()
@@ -30,13 +24,14 @@ let currentPage = 1
 
 addEventListener('resize', () => {})
 
-const insertColors = (colorCont) => {
+const insertColors = (colorCont, currentColor) => {
    let result = ''
 
    if (colorCont != undefined) {
       const colors = colorCont.values
 
       for (const color of colors) {
+         let hidden = color == currentColor ? '' : 'hidden'
          result += `
             <div id=${color} class="color flex items-center justify-center">
                <div
@@ -45,10 +40,12 @@ const insertColors = (colorCont) => {
                ></div>
                <img
                   id="${color}"
-                  src="./img/tick.png"
+                  src="./img/tick.svg"
                   alt=""
-                  class="absolute hidden flex items-center justify-center"
+                  class="filter-black absolute ${hidden} flex items-center justify-center  "
                />
+
+        
             </div>
          `
       }
@@ -57,21 +54,23 @@ const insertColors = (colorCont) => {
    return result
 }
 
-const insertSizes = (sizeCont) => {
+const insertSizes = (sizeCont, currentSize) => {
    let result = ''
 
    if (sizeCont != undefined) {
       const sizes = sizeCont.values
 
       for (const size of sizes) {
+         let active = size == currentSize ? 'active' : ''
+
          result += `
             <div
                id="${size}"
-               class="size flex items-center justify-center bg-gray-200 rounded-full px-5"
+               class="size ${active} flex items-center justify-center bg-gray-200 rounded-full px-5"
                style="width: 102px; height: 38px"
             >
                <p
-                  class="textprice opacity-60 text-base font-normal leading-normal"
+                  class="textprice text-base font-normal leading-normal"
                >${size}</p>
             </div>
          `
@@ -129,11 +128,12 @@ const insertRecommendedProducts = async (productId) => {
             firstVariant.compare_at_price ?? recommededProductComparedPrice
       }
       result += `
-         <div class="alsolike-prod w-56">
+         <div class="alsolike-prod w-96">
             <div class="img-prev-container">
                <img
                   class="product rounded-2xl"
                   src=${recommendedProductSrc}
+                  style= "width: 300px"
                />
             </div>
             <p class="mt-2 text-ellipsis">${recommendedProduct.title}</p>
@@ -307,14 +307,14 @@ const displayProducts = async (page) => {
                            <span class="text-lg opacity-60">Select Colors</span>
                         </div>
                         <div class="colors flex gap-4 pt-2">
-                           ${insertColors(colorCont)}
+                           ${insertColors(colorCont, productColor)}
                         </div>
                         <div class="pt-4">
                            <div class="ddd mt-0 mb-3"></div>
                            <span class="text-lg opacity-60">Choose Size</span>
                         </div>
                         <div class="sizes flex gap-4 pt-2 overflow-x-scroll">
-                           ${insertSizes(sizeCont)}
+                           ${insertSizes(sizeCont, productSize)}
                         </div>
                         <div class="ddd mt-5 mb-3"></div>
 
@@ -348,7 +348,7 @@ const displayProducts = async (page) => {
                         You might also like
                      </h2>
 
-                     <div id="youMightLikeProds" class="flex gap-5 overflow-x-scroll">
+                     <div id="youMightLikeProds" class="flex gap-16 overflow-x-scroll">
                         ${await insertRecommendedProducts(product.id)}
                      </div>
                   </div>
@@ -407,7 +407,10 @@ const displayProducts = async (page) => {
             allSizesDivs.forEach((sizeDiv) => {
                sizeDiv.addEventListener('click', () => {
                   allSizesP.forEach((sizeP) => {
-                     if (sizeP.innerText == sizeDiv.id) {
+                     if (
+                        sizeP.innerText == sizeDiv.id &&
+                        !sizeDiv.classList.contains('active')
+                     ) {
                         sizeDiv.classList.add('active')
                         productSize = sizeP.innerText
                         setNewPrice(

@@ -1,7 +1,13 @@
 @layer base {
    .font-custom {
       font-family: 'Avenir', sans-serif;
+      color: #484a4a;
    }
+}
+
+.filter-black {
+   filter: invert(28%) sepia(8%) saturate(117%) hue-rotate(131deg)
+      brightness(94%) contrast(90%);
 }
 
 /* body {
@@ -10,6 +16,10 @@
 
 .footer {
    margin-top: 9.5rem;
+}
+
+.border-width {
+   border-top-width: 1px;
 }
 
 .range-input input {
@@ -230,9 +240,14 @@ main {
    font-size: 3rem;
 }
 
+.size {
+   opacity: 60%;
+}
+
 .size.active {
+   opacity: 100%;
    background-color: #000;
-   color: white;
+   color: #ffffff;
 }
 
 /* IMAGE CONTAINER */
