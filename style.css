@@ -1,7 +1,6 @@
 @layer base {
    .font-custom {
       font-family: 'Avenir', sans-serif;
-      color: #484a4a;
    }
 }
 

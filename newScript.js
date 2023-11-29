@@ -1,15 +1,32 @@
 const shopifyRoot = 'https://voodoo-sandbox.myshopify.com/'
 
 const getProducts = async () => {
-   const response = await fetch(shopifyRoot + 'products.json?limit=461')
-   return await response.json()
+   let response = await fetch(
+      'https://voodoo-sandbox.myshopify.com/products.json?limit=461'
+   )
+
+   let jsonPromise = await response.json()
+
+   let promise = new Promise((resolve, reject) => {
+      setTimeout(() => {
+         console.log(jsonPromise)
+         return resolve('готово!')
+      }, 1000)
+   })
+
+   let res = await promise
+   console.log(res)
+
+   return jsonPromise
 }
+
+console.log(getProducts())
 
 const getRecommendedProducts = async (productId) => {
    let link =
       shopifyRoot + 'recommendations/products.json?product_id=' + productId
 
-   const response = await fetch('recommendedProducts.json')
+   const response = await fetch('link')
    return await response.json()
 }
 
@@ -19,10 +36,10 @@ const closePreview = () => {
    sectionPreview.classList.toggle('flex')
 }
 
-let itemsPerPage = window.innerWidth >= 1024 ? 9 : 6
-let currentPage = 1
+// let itemsPerPage = window.innerWidth >= 1024 ? 9 : 6
+// let currentPage = 1
 
-addEventListener('resize', () => {})
+// addEventListener('resize', () => {})
 
 const insertColors = (colorCont, currentColor) => {
    let result = ''
@@ -513,5 +530,5 @@ async function displayPagination() {
 }
 
 // Initial display
-displayProducts(currentPage)
-displayPagination()
+// displayProducts(currentPage)
+// displayPagination()
