@@ -1,23 +1,8 @@
 const shopifyRoot = 'https://voodoo-sandbox.myshopify.com/'
 
 const getProducts = async () => {
-   let response = await fetch(
-      'https://voodoo-sandbox.myshopify.com/products.json?limit=461'
-   )
-
-   let jsonPromise = await response.json()
-
-   let promise = new Promise((resolve, reject) => {
-      setTimeout(() => {
-         console.log(jsonPromise)
-         return resolve('готово!')
-      }, 1000)
-   })
-
-   let res = await promise
-   console.log(res)
-
-   return jsonPromise
+   const response = await fetch(shopifyRoot + 'products.json?limit=461')
+   return await response.json()
 }
 
 console.log(getProducts())
@@ -36,10 +21,10 @@ const closePreview = () => {
    sectionPreview.classList.toggle('flex')
 }
 
-// let itemsPerPage = window.innerWidth >= 1024 ? 9 : 6
-// let currentPage = 1
+let itemsPerPage = window.innerWidth >= 1024 ? 9 : 6
+let currentPage = 1
 
-// addEventListener('resize', () => {})
+addEventListener('resize', () => {})
 
 const insertColors = (colorCont, currentColor) => {
    let result = ''
