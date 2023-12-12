@@ -5,8 +5,6 @@ const getProducts = async () => {
    return await response.json()
 }
 
-console.log(getProducts())
-
 const getRecommendedProducts = async (productId) => {
    let link =
       shopifyRoot + 'recommendations/products.json?product_id=' + productId
@@ -515,5 +513,5 @@ async function displayPagination() {
 }
 
 // Initial display
-// displayProducts(currentPage)
-// displayPagination()
+displayProducts(currentPage)
+displayPagination()
