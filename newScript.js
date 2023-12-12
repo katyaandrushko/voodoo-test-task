@@ -9,7 +9,7 @@ const getRecommendedProducts = async (productId) => {
    let link =
       shopifyRoot + 'recommendations/products.json?product_id=' + productId
 
-   const response = await fetch('link')
+   const response = await fetch('recommendedProducts.json')
    return await response.json()
 }
 
